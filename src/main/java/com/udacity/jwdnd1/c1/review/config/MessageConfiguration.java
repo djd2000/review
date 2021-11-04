@@ -1,6 +1,6 @@
 package com.udacity.jwdnd1.c1.review.config;
 
-import com.udacity.jwdnd1.c1.review.Message;
+import com.udacity.jwdnd1.c1.review.domain.Message;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

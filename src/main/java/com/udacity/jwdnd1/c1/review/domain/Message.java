@@ -1,4 +1,4 @@
-package com.udacity.jwdnd1.c1.review;
+package com.udacity.jwdnd1.c1.review.domain;
 
 public class Message {
 

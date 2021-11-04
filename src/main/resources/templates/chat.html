@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Chat</title>
+</head>
+<body style="background-color:powderblue;">
+<div class="container p-3 my-3 border bg-warning">
+    <h5>Enter Message:</h5>
+    <form th:object="${chatForm}" th:action="@{/chat}" action="#" method="POST">
+        <label for="username">Username:</label>
+        <input th:field="*{userName}" id="username" type="text">
+        <label for="messageText">Message Text:</label>
+        <input th:field="*{messageText}" id="messageText" type="text">
+        <label for="messageType">Message Type: </label>
+        <select id="messageType">
+            <option selected>Say</option>
+            <option>Shout</option>
+            <option>Whisper</option>
+        </select>
+        <input type="submit">
+    </form>
+</div>
+<div class="container p-3 my-3 border bg-light">
+    <h5>All Messages:</h5>
+    <table class="table">
+        <thead>
+        <tr>
+            <th> Username</th>
+            <th> Message Text</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${messages.empty}">
+            <td colspan="2"> No Messages Available</td>
+        </tr>
+        <tr th:each="message : ${messages}">
+            <td><span th:text="${message.getUserName()}"> User </span></td>
+            <td><span th:text="${message.getMessage()}"> Message </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
