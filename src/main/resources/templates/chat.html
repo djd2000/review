@@ -23,10 +23,12 @@
         <label for="messageText">Message Text:</label>
         <input th:field="*{messageText}" id="messageText" type="text">
         <label for="messageType">Message Type: </label>
-        <select id="messageType">
-            <option selected>Say</option>
-            <option>Shout</option>
-            <option>Whisper</option>
+        <select th:field="*{messageType}" id="messageType">
+            <option value="">Nothing selected</option>
+            <option th:each="messageType : ${T(com.udacity.jwdnd1.c1.review.domain.MessageType).values()}"
+                    th:value="${messageType}"
+                    th:text="${messageType}">messageType
+            </option>
         </select>
         <input type="submit">
     </form>

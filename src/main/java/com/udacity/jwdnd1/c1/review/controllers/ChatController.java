@@ -31,7 +31,6 @@ public class ChatController {
     @PostMapping("/chat")
     public String postChatMessage(@ModelAttribute("chatForm") ChatForm chatForm, Model model){
         ChatMessage message = new ChatMessage();
-        chatForm.setMessageType("Shout");
         switch (chatForm.getMessageType()){
             case "Shout": message.setMessage(chatForm.getMessageText().toUpperCase());
                 break;
