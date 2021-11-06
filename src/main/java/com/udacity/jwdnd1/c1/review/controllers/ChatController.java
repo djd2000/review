@@ -24,7 +24,7 @@ public class ChatController {
 
     @GetMapping("/chat")
     public String getChatPage(ChatForm chatForm, Model model){
-        model.addAttribute("messages", Collections.emptyList());
+        model.addAttribute("messages", messageService.getMessages());
         return "chat";
     }
 
